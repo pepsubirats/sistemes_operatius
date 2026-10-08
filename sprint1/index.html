@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APT Pinning del paquet curl</title>
-<link rel="stylesheet" href="css/estils.css">
+<link rel="stylesheet" href="../css/estils.css">
 <style>
-  /* Estils mínims per als passos i les captures (no cal tocar estils.css) */
+  /* Estils mínims per als passos i les captures */
   .pas { margin: 2rem 0; }
   .pas h2 { margin-bottom: .5rem; }
   .pas figure { margin: 1rem 0 0; }
@@ -18,12 +18,12 @@
 
 <header class="hero">
   <nav class="hero-nav">
-    <a href="index.html">Portada</a>
-    <a href="sprints.html">Índex de sprints</a>
+    <a href="../index.html">Portada</a>
+    <a href="../sprints.html">Índex de sprints</a>
     <a href="https://github.com/" target="_blank" rel="noopener">Codi a GitHub ↗</a>
   </nav>
   <div class="hero-titol">
-    <p class="miguetes"><a href="index.html">Portada</a> / <a href="sprints.html">Índex de sprints</a> / APT Pinning</p>
+    <p class="miguetes"><a href="../index.html">Portada</a> / <a href="../sprints.html">Índex de sprints</a> / APT Pinning</p>
     <h1>APT Pinning del paquet curl</h1>
     <p class="subtitol">Fixació de la versió 8.5.0-2ubuntu10 mitjançant una regla de preferències d'APT</p>
   </div>
@@ -39,7 +39,9 @@
          defecte és la <strong>8.5.0-2ubuntu10.15</strong> provinent dels repositoris d'actualitzacions
          i seguretat.</p>
       <figure>
-        <img src="../1.png"
+        <img src="1.png"
+             alt="Sortida de apt-cache policy curl: versió instal·lada i candidata 8.5.0-2ubuntu10.15"
+             width="754" height="237">
         <figcaption>Sortida de <code>apt-cache policy curl</code> abans de crear la regla.</figcaption>
       </figure>
     </article>
@@ -51,7 +53,9 @@
          <strong>8.5.0-2ubuntu10</strong> del paquet <strong>curl</strong>, assignant-li una prioritat
          alta de <strong>1001</strong>.</p>
       <figure>
-        <img src="../2.png"
+        <img src="2.png"
+             alt="Editor nano amb el fitxer /etc/apt/preferences.d/curl-pin: Package curl, Pin version 8.5.0-2ubuntu10, Pin-Priority 1001"
+             width="661" height="101">
         <figcaption>Contingut del fitxer <code>curl-pin</code> a l'editor nano.</figcaption>
       </figure>
     </article>
@@ -62,7 +66,9 @@
          la nova regla de preferència s'ha aplicat correctament i que la versió candidata ha passat a ser
          la <strong>8.5.0-2ubuntu10</strong> amb prioritat <strong>1001</strong>.</p>
       <figure>
-        <img src="../3.png"
+        <img src="3.png"
+             alt="Sortida de apt-cache policy curl: versió candidata 8.5.0-2ubuntu10 amb prioritat 1001"
+             width="737" height="233">
         <figcaption>Sortida de <code>apt-cache policy curl</code> un cop aplicada la regla.</figcaption>
       </figure>
     </article>
