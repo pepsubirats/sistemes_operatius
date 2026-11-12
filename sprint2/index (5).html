@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint 2 · Gestió de programari i usuaris</title>
+<link rel="stylesheet" href="../css/estils.css">
+</head>
+<body>
+
+<header class="hero">
+  <nav class="hero-nav">
+    <a href="../index.html">Portada</a>
+    <a href="../sprints.html">Índex de sprints</a>
+    <a href="https://github.com/" target="_blank" rel="noopener">Codi a GitHub ↗</a>
+  </nav>
+  <div class="hero-titol">
+    <p class="miguetes"><a href="../index.html">Portada</a> / <a href="../sprints.html">Índex de sprints</a> / Sprint 2</p>
+    <h1>Sprint 2 · Gestió de programari i usuaris</h1>
+    <p class="subtitol">Índex d'apartats d'aquest sprint</p>
+  </div>
+</header>
+
+<main class="contenidor">
+  <section class="panell">
+    <a id="index-apartats"></a>
+    <table class="taula-apartats">
+      <thead>
+        <tr><th>#</th><th>Apartat</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#apartat1">Gestors de paquets</a></td></tr>
+        <tr><td>2</td><td><a href="#apartat2">Permisos i propietaris d'arxius</a></td></tr>
+              <tr><td>3</td><td><a href="#apartat3">Gestió de processos</a></td></tr>
+        <tr><td>4</td><td><a href="#apartat4">Tipus de Formateig</a></td></tr>
+        <tr><td>5</td><td><a href="#apartat5">Particions i sistemes de fitxers</a></td></tr>
+      </tbody>
+    </table>
+
+    <article class="apartat" id="apartat1">
+      <h2>1. Gestors de paquets</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+         tempor incididunt ut labore et dolore magna aliqua. El gestor de
+         paquets permet <strong>instal·lar, actualitzar i eliminar</strong>
+         programari de manera controlada.</p>
+      <ul>
+        <li>Actualitzar la llista de paquets disponibles.</li>
+        <li>Instal·lar un paquet nou.</li>
+        <li>Eliminar un paquet que ja no es fa servir.</li>
+      </ul>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat2">
+      <h2>2. Permisos i propietaris d'arxius</h2>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+         ut aliquip ex ea commodo consequat. Cada arxiu té un
+         <strong>propietari, un grup i uns permisos</strong> que en determinen
+         l'accés.</p>
+      <img src="../img/exemple.svg" alt="Exemple de captura de pantalla dels permisos d'un arxiu">
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+         dolore eu fugiat nulla pariatur.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat3">
+      <h2>3. Gestió de processos</h2>
+      <h3>Captura 1 · Preparar el cas</h3>
+      <p>He creat els cinc scripts a ~/missio i els he fet executables (la x a ls -l). En executar ./sospitosos.sh es llancen els processos intrusos.</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image5.png" alt="Captura">
+      <h3>Captura 2 · Arbre de processos</h3>
+      <p>Amb pstree -p $USER es veu que minador, espia i backup_nocturn no pengen del bash sinó de systemd: són orfes adoptats pel sistema.</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image7.png" alt="Captura">
+      <h3>Captura 3 · Qui consumeix més</h3>
+      <p>A top ordenat per CPU (tecla P) surten els dos minador a dalt, gastant un nucli sencer cadascun. Són els que alenteixen el servidor.</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image2.png" alt="Captura">
+      <h3>Captura 4 · Interrogatori amb ps</h3>
+      <p>El pare (PPID 2501) és systemd. Amb pgrep -l trobo els PID i amb ps -o veig que els minador estan en R amb ~50 % de CPU i la resta en S.</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image6.png" alt="Captura">
+      <h3>Captura 5 · Primer i segon pla</h3>
+      <p>A T2 segueixo el progrés amb watch. A T1 aturo el treball amb Ctrl+Z, el veig amb jobs -l, el passo a segon pla amb bg %1 i el torno al primer pla amb fg %1.</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image1.png" alt="Captura">
+      <img src="Gesti%C3%B3%20de%20processos/images/image4.png" alt="Captura">
+      <h3>Captura 6 · Prioritat</h3>
+      <p>Amb renice canvio el valor nice (baixar-lo requereix sudo). A top es veu la columna NI canviada i el procés prioritari rep més CPU.</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image3.png" alt="Captura">
+      <h3>Captura 7 · Neutralitzar els intrusos</h3>
+      <p>Mato els minador amb kill. L&#x27;espia ignora SIGTERM («Ni parlar-ne»), així que cal kill -9. El backup el congelo amb kill -STOP (estat T) i el reprenc amb kill -CONT (estat S).</p>
+      <img src="Gesti%C3%B3%20de%20processos/images/image8.png" alt="Captura">
+      <img src="Gesti%C3%B3%20de%20processos/images/image9.png" alt="Captura">
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat4">
+      <h2>4. Tipus de Formateig</h2>
+      <h3>Fitxers de prova</h3>
+      <p>A ~/practica he creat foto.png, apunts.pdf i notes.txt (amb la frase de la pizza).</p>
+      <img src="Tipus%20de%20Formateig/images/image2.png" alt="Captura">
+      <h3>Disc virtual</h3>
+      <p>Amb dd he creat disc.img de 200 MB, l&#x27;he formatat en ext4, muntat a /mnt/prova i hi he copiat els tres fitxers.</p>
+      <img src="Tipus%20de%20Formateig/images/image10.png" alt="Captura">
+      <img src="Tipus%20de%20Formateig/images/image5.png" alt="Captura">
+      <h3>Pas 2.4 · Hashes originals</h3>
+      <p>He desat el SHA-256 dels tres fitxers a originals.sha. Si dos fitxers tenen el mateix hash, són idèntics.</p>
+      <img src="Tipus%20de%20Formateig/images/image3.png" alt="Captura">
+      <h3>Pas 3.2 · Formateig ràpid</h3>
+      <p>mkfs.ext4 -E nodiscard només reescriu l&#x27;estructura del sistema de fitxers. El disc sembla buit: només hi ha lost+found.</p>
+      <img src="Tipus%20de%20Formateig/images/image8.png" alt="Captura">
+      <img src="Tipus%20de%20Formateig/images/image1.png" alt="Captura">
+      <h3>Pas 4.3 · Recuperació amb PhotoRec</h3>
+      <p>PhotoRec llegeix el disc buscant capçaleres i recupera els fitxers amb noms nous. Els seus hashes coincideixen amb els originals.</p>
+      <img src="Tipus%20de%20Formateig/images/image4.png" alt="Captura">
+      <img src="Tipus%20de%20Formateig/images/image9.png" alt="Captura">
+      <img src="Tipus%20de%20Formateig/images/image6.png" alt="Captura">
+      <h3>Pas 4.4 · La frase segueix al disc</h3>
+      <p>PhotoRec no troba el .txt perquè no té capçalera, però strings disc.img | grep pizza troba la frase.</p>
+      <img src="Tipus%20de%20Formateig/images/image7.png" alt="Captura">
+      <h3>Respostes</h3>
+      <p>1. Els fitxers seguien als mateixos blocs; només s&#x27;havia esborrat l&#x27;índex.</p>
+      <p>2. El nom és al directori esborrat; PhotoRec posa un nom segons la posició.</p>
+      <p>3. Comparant el hash SHA-256 de la recuperada amb el de l&#x27;original.</p>
+      <p>4. El .txt no té capçalera; l&#x27;he trobat amb strings i grep.</p>
+      <p>5. Part 3: formateig ràpid (alt nivell). Part 5: esborrat de baix nivell amb zeros.</p>
+      <p>6. Un esborrat de baix nivell, perquè el ràpid deixa les fotos recuperables.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat5">
+      <h2>5. Particions i sistemes de fitxers</h2>
+      <h3>Afegir un disc virtual</h3>
+      <p>A VirtualBox he creat disc_particions.vdi de 2 GB i l&#x27;he afegit a la màquina.</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image7.png" alt="Captura">
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image8.png" alt="Captura">
+      <h3>Identificar el disc</h3>
+      <p>lsblk -e7 mostra el disc nou com a sdb, de 2 GB i sense particions.</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image5.png" alt="Captura">
+      <h3>Crear les particions</h3>
+      <p>Amb sudo fdisk /dev/sdb creo una taula MBR i dues particions primàries: sdb1 d&#x27;1 GiB (Linux) i sdb2 amb la resta (NTFS).</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image3.png" alt="Captura">
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image1.png" alt="Captura">
+      <h3>Formatar sdb1 en ext4</h3>
+      <p>mkfs.ext4 -b 2048 -L particio1 formata amb blocs de 2048 bytes; tune2fs -l ho confirma.</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image10.png" alt="Captura">
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image12.png" alt="Captura">
+      <h3>Formatar sdb2 en NTFS</h3>
+      <p>Sense formatar, el muntatge falla («NTFS signature is missing»). La formato amb mkfs.ntfs -f -L particio2.</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image11.png" alt="Captura">
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image2.png" alt="Captura">
+      <h3>Muntar a mà</h3>
+      <p>Creo /var/particio1 i /var/particio2 i munto les particions. df -hT | grep sdb mostra el tipus i la mida de cadascuna.</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image6.png" alt="Captura">
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image4.png" alt="Captura">
+      <h3>Muntatge permanent</h3>
+      <p>Amb blkid obtinc l&#x27;UUID de cada partició i l&#x27;afegeixo a /etc/fstab amb nofail. En reiniciar es munten soles.</p>
+      <img src="Particions%20i%20sistemes%20de%20fitxers/images/image9.png" alt="Captura">
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+  </section>
+</main>
+
+<footer class="peu">
+  <p class="peu-llicencia">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">
+      <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0" width="88" height="31">
+    </a>
+    <span>Contingut sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a></span>
+  </p>
+  <p class="autoria">Autor/a: <strong>Nom Cognom1 Cognom2</strong> · Pràctica 0 · Sistemes Operatius (ISOPJ1)</p>
+</footer>
+
+</body>
+</html>
